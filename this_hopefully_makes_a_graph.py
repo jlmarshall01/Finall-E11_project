@@ -103,11 +103,11 @@ print('sigma CPS = ', sigma2)
 
 
 #compare to normal curvie curve
-def gaussian(x2, mu2, sigma):
-    func = 1/(np.sqrt(2*math.pi) * sigma) * np.exp(-1/2 * np.power((x-mu)/sigma,2))
-    return func
+#def gaussian(x2, mu2, sigma):
+#    func = 1/(np.sqrt(2*math.pi) * sigma) * np.exp(-1/2 * np.power((x-mu)/sigma,2))
+#    return func
 x2 = np.arange(xmin2,xmax2+1)
-plt.plot(x,gaussian(x2, mu2, sigma2), label='normal curve of bottom level')
+plt.plot(x2,gaussian(x2, mu2, sigma2), label='normal curve of bottom level')
 plt.hist(counts2,bins=nbins2,density=True, label='data of bottom level')
 
 
@@ -126,15 +126,3 @@ plt.xlabel('CPS')
 plt.ylabel('Times Detected')
 plt.legend()
 plt.show()
-
-
-##########################################
-#finding uncertaINTY OF THE MEAN
-##########################################
-
-def mean_uncertainty(mu, N):
-	func = mu/np.sqrt(N)
-	return func
-
-print('uncertainty mean top:', mean_uncertainty(mu, spectrum))
-print('uncertainty mean bottom:', mean_uncertainty(mu2, spectrum2))
